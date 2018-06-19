@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>微粒进度条</title>
+	<style>
+		*{ margin: 0; padding: 0; }
+		body { background: #000; }
+		canvas {
+			background: #111;
+			border: 1px solid #171717;
+			display: block;
+			left: 50%;
+			margin: -51px 0 0 -201px;
+			position: absolute;
+			top: 50%;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		// 检测支持canvas
+		var isCanvasSupported = function(){
+			var elem = document.createElement('canvas');
+			return !!(elem.getContext && elem.getContext('2d'));
+		};
+
+		// 兼容动画帧
+		var setupRAF = function(){
+			var lastTime = 0;
+			var vendors = ['ms', 'moz', 'webkit', 'o'];
+			for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x){
+				window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+				window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+			};
+
+			if(!window.requestAnimationFrame){
+				window.requestAnimationFrame = function(callback, element){
+					var currTime = new Date().getTime();
+					// 1000/60 ~= 16.7 为了达到每秒60帧的效果
+					var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+					var id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
+					lastTime = currTime + timeToCall;
+					return id;
+				};
+			};
+			
+			if (!window.cancelAnimationFrame){
+				window.cancelAnimationFrame = function(id){
+					clearTimeout(id);
+				};
+			};
+		};
+
+		// 利用构造函数模式创建对象
+		function Particle(c, cw, ch){
+			var _this = this;
+			this.c = c;
+			this.ctx = c.getContext('2d');
+			this.cw = cw;
+			this.ch = ch;
+
+			this.loaded = 0;	// 进度条
+			this.loaderSpeed = .6;		// 进度条增加速度
+			this.loaderHeight = 10;		// 进度条高度
+			this.loaderWidth = 310;		// 进度条宽度
+			this.loader = {		// 进度条完全居中
+				x: (this.cw/2) - (this.loaderWidth/2),
+				y: (this.ch/2) - (this.loaderHeight/2)
+			};
+
+			this.hue = 0;	// 颜色
+			this.hueStart = 0;	// 初始色调
+			this.hueEnd = 120;	// 结尾色调
+
+			this.particles = [];	// 微粒集合
+			this.particleLift = 180;  // 微粒垂直偏移半区间
+			this.particleRate = 4;		// 微粒速率
+			this.gravity = .15;		// 重力
+
+			// 指定范围随机数并四舍五入取整（即算头也算尾）
+			this.rand = function(rMi, rMa){return ~~((Math.random()*(rMa-rMi+1))+rMi);};
+
+			// 增加进度
+			this.updateLoader = function(){
+				if(this.loaded < 100){
+					this.loaded += this.loaderSpeed;
+				} else {
+					this.loaded = 0;
+				}
+			};
+
+			// 绘制进度
+			this.renderLoader = function(){
+				this.ctx.fillStyle = '#000';
+				this.ctx.fillRect(this.loader.x, this.loader.y, this.loaderWidth, this.loaderHeight);
+
+				// 随着进度条的增加实时更改颜色
+				this.hue = this.hueStart + (this.loaded/100)*(this.hueEnd - this.hueStart);
+
+				var newWidth = (this.loaded/100)*this.loaderWidth;
+				this.ctx.fillStyle = 'hsla('+this.hue+', 100%, 40%, 1)';
+				this.ctx.fillRect(this.loader.x, this.loader.y, newWidth, this.loaderHeight);
+
+				this.ctx.fillStyle = '#222';
+				this.ctx.fillRect(this.loader.x, this.loader.y, newWidth, this.loaderHeight/2);
+
+				// 混合颜色
+				this.ctx.globalCompositeOperation = 'lighter';
+			};
+
+			// 每一个微粒都是一个新的对象
+			this.Particle = function(){
+
+				// 进度条左偏移量 + 实时进度条宽度 - 0||1
+				this.x = _this.loader.x + ((_this.loaded/100)*_this.loaderWidth) - _this.rand(0, 1);
+				// 进度条canvas元素高度/2 + 0至进度条高度的随机整数 - 进度条高度/2
+				this.y = _this.ch/2 + _this.rand(0,_this.loaderHeight)-_this.loaderHeight/2;
+
+				// 微粒相对于进度条的偏移量-初始值
+				// 左，-0.02 || -0.01 || 0 || 0.01 || 0.02
+				this.vx = (_this.rand(0,4)-2)/100;
+				// 右，(0至微粒垂直偏移半区间的随机整数 - 微粒垂直偏移全区间)/100
+				this.vy = (_this.rand(0,_this.particleLift)-_this.particleLift*2)/100;
+
+				this.width = _this.rand(1,4)/2;		// 微粒大小 0.5、1、1.5、2
+				this.height = _this.rand(1,4)/2;	// 微粒大小 0.5、1、1.5、2
+
+				this.hue = _this.hue;
+			}
+
+			// 绘制每个微粒
+			this.Particle.prototype.render = function(){
+				_this.ctx.fillStyle = 'hsla('+this.hue+', 100%, '+_this.rand(50,70)+'%, '+_this.rand(20,100)/100+')';
+				_this.ctx.fillRect(this.x, this.y, this.width, this.height);
+			};
+
+			// 计算微粒的偏移量
+			this.Particle.prototype.update = function(i){
+				this.vx += (_this.rand(0,6)-3)/100;
+				this.vy += _this.gravity;
+				this.x += this.vx;
+				this.y += this.vy;
+				if(this.y > _this.ch){
+					_this.particles.splice(i, 1);
+				} 
+			}
+
+			// 根据速率一次性往集合里放置相应数目的微粒对象
+			this.createParticles = function(){
+				var i = this.particleRate;
+				while(i--){
+					this.particles.push(new this.Particle());
+				};
+			};
+
+			// 为微粒数组里的每个属相增加偏移量
+			this.updateParticles = function(){					
+				var i = this.particles.length;						
+				while(i--){
+					var p = this.particles[i];
+					p.update(i);											
+				};						
+			};
+
+			// 绘制数组里的每个微粒
+			this.renderParticles = function(){
+				var i = this.particles.length;						
+				while(i--){
+					var p = this.particles[i];
+					p.render();											
+				};					
+			};
+
+			// 清除动画
+			this.clearCanvas = function(){
+				this.ctx.clearRect(0,0,this.cw,this.ch);					
+			};
+
+			// 初始化
+			this.init = function(){
+				animationId = window.requestAnimationFrame(arguments.callee);
+
+				_this.clearCanvas();
+
+				_this.createParticles();
+
+				_this.updateLoader();
+				_this.updateParticles();
+
+				_this.renderLoader();
+				_this.renderParticles();
+
+			};
+		}
+
+	</script>
+	<script>
+		// 初始化
+		if (isCanvasSupported) {
+			var c = document.createElement('canvas');
+		 	c.width = 400;
+		  	c.height = 200;			
+		  	var cw = c.width;
+		  	var ch = c.height;
+		  	document.body.appendChild(c);
+
+		  	var particle = new Particle(c, cw, ch);
+		  	setupRAF();
+		  	particle.init();
+
+		  	// 停止动画
+			document.addEventListener('click', function(){
+			   	window.cancelAnimationFrame(animationId);
+			   	c.setAttribute('class', 'stop');
+			}, false);
+
+			// 继续动画，禁止冒泡
+			c.addEventListener('click', function(event){
+				event = window.event || event;
+				event.stopPropagation();
+				if (c.getAttribute('class')) {
+				   	particle.init();
+				   	c.removeAttribute('class');
+				}
+			}, false);
+		}
+	</script>
+</body>
+</html>
