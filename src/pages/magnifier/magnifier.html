@@ -11,6 +11,12 @@
 	</style>
 </head>
 <body>
+	<div>
+		<label for="ratio">放大级别（0-1缩小，>1放大）</label>
+		<input id="ratio" type="number" value="2">
+		<button id="btnSure">确定</button>
+	</div>
+	<br>
 	<div class="glass">
 		<canvas id="canvas1"></canvas>
 		<canvas id="canvas2" width="80px" height="80px"></canvas>
@@ -21,12 +27,14 @@
 		var canvas2 = document.getElementById("canvas2");	// 放大镜
 		var context2 = canvas2.getContext("2d");
 		
-		/*
-			ratio>1 放大
-			0<ratio<1 缩小
-		*/
-		var ratio = 2;
-	
+		var ipt = document.getElementById('ratio');
+		var ratio = ipt.value || 2;
+		var btn = document.getElementById('btnSure');
+		btn.addEventListener('click', function() {
+			ratio = ipt.value || 2;
+			window_onload();
+		}, false);
+
 		function window_onload() {
 			var image = new Image();
 			image.src = "gmd.jpg";
