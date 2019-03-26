@@ -15,7 +15,7 @@
 
 ## [百度地图](https://lbsyun.baidu.com/index.php?title=jspopular3.0)
 
-*[自己写了一个百度地图插件](https://shuizhongxiong.github.io/bmap-helper/demo/demo.html)*
+*[自己写了一个百度地图插件](https://shuizhongxiong.github.io/bmap-helper/demo)*
 
 * [热力方块图](https://shuizhongxiong.github.io/h5-demo/src/chart/bmap/grid)
 * [行政区域蒙层](https://shuizhongxiong.github.io/h5-demo/src/chart/bmap/search)
@@ -27,6 +27,7 @@
 
 ## H5 特效
 
+* [夜晚流星](https://shuizhongxiong.github.io/h5-demo/src/h5/meteor-shower)
 * [时钟](https://shuizhongxiong.github.io/h5-demo/src/h5/clock)
 * [微粒进度条](https://shuizhongxiong.github.io/h5-demo/src/h5/particle)
 * [放大镜](https://shuizhongxiong.github.io/h5-demo/src/h5/magnifier)

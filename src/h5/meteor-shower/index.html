@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  </meta>
+  <title>彗星划过星空的效果</title>
+  <style>
+    html,
+    body {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+    body,
+    div,
+    canvas {
+      margin: 0;
+      padding: 0;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='stars'>
+    <canvas id='canvas1'></canvas>
+    <canvas id='canvas'></canvas>
+  </div>
+  <script src='http://cdn.bootcss.com/stats.js/r16/Stats.js'></script>
+  <script>
+    // 动画帧
+    ;(function() {
+      var lastTime = 0;
+      var vendors = ['ms', 'moz', 'webkit', 'o'];
+      for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++
+        x) {
+        window.requestAnimationFrame = window[vendors[x] +
+          'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] +
+          'CancelAnimationFrame'] || window[vendors[x] +
+          'CancelRequestAnimationFrame'];
+      }
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function(callback, element) {
+          var currTime = new Date().getTime();
+          var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+          var id = window.setTimeout(function() {
+            callback(currTime + timeToCall);
+          }, timeToCall);
+          lastTime = currTime + timeToCall;
+          return id;
+        };
+      }
+      if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function(id) {
+          clearTimeout(id);
+        };
+      }
+    }());
+
+    // 星空
+    ;(function() {
+      // 配置
+      var setting = {
+        'domId': 'canvas', // 绑定dom节点
+        'domId1': 'canvas1', // 绑定星星背景dom节点
+        'cWidth': document.documentElement.clientWidth || document.body
+          .clientWidth || 0, // canvas宽
+        'cHeight': document.documentElement.clientHeight || document.body
+          .clientHeight || 0, // canvas高
+        'cBackground': '#000', // canvas背景颜色
+
+        'sCount': 600, // 星星数量
+        'sSize': [0.1, 3.9], // 星星大小
+        'sRate': 0.06, // 星星闪烁频率 
+        'sTwinkCount': 160, // 星星闪烁上限
+        'sIsCross': true, // 是否开启星星中的十字
+
+        'mCount': 10, // 流星数量
+        'mAngle': 30, // 流星倾斜角度
+        'mSpeed': 10, // 流星速度
+        'mWidth': 2, // 流星宽度
+        'mLength': [300, 500] // 流星长度
+      }
+
+      // 星星
+      var cv = document.getElementById(setting.domId),
+        ctx = cv.getContext('2d'),
+        stars = [],
+        meteors = [];
+      cv.width = setting.cWidth;
+      cv.height = setting.cHeight;
+
+      // 星星背景，如果星星过多时将放入一些静态星星，节省内存
+      var cv1 = document.getElementById(setting.domId1),
+        ctx1 = cv1.getContext('2d'),
+        stars1 = [];
+      cv1.width = setting.cWidth;
+      cv1.height = setting.cHeight;
+
+      var random = function(min, max) {
+        return Math.random() * (max - min + 1) + min;
+      }
+      var rndf = function(n) {
+        return Math.floor(Math.random() * n);
+      }
+      var rndc = function(n) {
+        return Math.ceil(Math.random() * n);
+      }
+
+      // 初始化所有的星星
+      function initAllStar() {
+        // 放置多出300的星星到背景上
+        if (+setting.sCount > +setting.sTwinkCount) {
+          var i1 = 0,
+            sCount1 = +setting.sCount - setting.sTwinkCount;
+
+          for (; i1 < sCount1; i1++) {
+            stars1.push({
+              'x': rndf(cv.width),
+              'y': rndf(cv.height),
+              'size': random(setting.sSize[0], setting.sSize[1]),
+              'color': 'rgba(' + rndf(255) + ', ' + rndf(255) + ', ' +
+                rndf(255) + ', 0.5)',
+              'alpha': random(0, 1)
+            });
+          }
+        }
+
+        var i = 0,
+          sCount = +setting.sCount > +setting.sTwinkCount ? +setting
+          .sTwinkCount : +setting.sCount;
+        for (; i < sCount; i++) {
+          stars.push({
+            'x': rndf(cv.width),
+            'y': rndf(cv.height),
+            'size': random(setting.sSize[0], setting.sSize[1]),
+            'color': 'rgba(' + rndf(255) + ', ' + rndf(255) + ', ' + rndf(
+              255) + ', 0.5)',
+            'alpha': random(0, 1)
+          });
+        }
+      }
+      // 绘制所有的星星
+      function drawAllStar(flag) {
+
+        var _stars = flag ? stars1 : stars,
+          _ctx = flag ? ctx1 : ctx;
+
+        var i = 0;
+        for (; i < _stars.length; i++) {
+          var star = _stars[i];
+          _ctx.save();
+          _ctx.beginPath();
+
+          if (star.alpha < 1) {
+            star.alpha += setting.sRate;
+          } else {
+            star.alpha = random(0, 1);
+          }
+          _ctx.globalAlpha = star.alpha;
+
+          var gradient = _ctx.createRadialGradient(star.x, star.y, 0, star.x,
+            star.y, star.size);
+          gradient.addColorStop(0, 'white');
+          gradient.addColorStop(0.3, 'white');
+          gradient.addColorStop(0.3, star.color);
+          gradient.addColorStop(1, setting.cBackground);
+          _ctx.fillStyle = gradient;
+          _ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2, true);
+          _ctx.closePath();
+          _ctx.fill();
+
+          // 十字
+          if (setting.sIsCross) {
+            _ctx.beginPath();
+            _ctx.strokeStyle = '#fff';
+            _ctx.lineWidth = 0.6;
+            _ctx.moveTo(star.x - star.size * 0.6, star.y);
+            _ctx.lineTo(star.x + star.size * 0.6, star.y);
+            _ctx.moveTo(star.x, star.y - star.size * 0.6);
+            _ctx.lineTo(star.x, star.y + star.size * 0.6);
+            _ctx.closePath();
+            _ctx.stroke();
+          }
+          _ctx.restore();
+        }
+      }
+
+      // 流星工厂
+      function Meteor() {
+        this.x = rndf(cv.width);
+        this.y = rndf(cv.height);
+        this.xx = this.x;
+        this.yy = this.y;
+        this.grow = 1;
+
+        this.color = 'rgba(' + rndf(255) + ', ' + rndf(255) + ', ' + rndf(
+          255) + ', 0.5)';
+        this.lineWidth = setting.mWidth;
+        this.length = random(setting.mLength[0], setting.mLength[1]);
+        this.angle = setting.mAngle;
+        this.speed = setting.mSpeed;
+
+        // 三角函数
+        var cos = Math.cos(this.angle * 3.14 / 180);
+        var sin = Math.sin(this.angle * 3.14 / 180);
+        // 流星尾部坐标
+        this.width = this.length * cos;
+        this.height = this.length * sin;
+        // 偏移量
+        this.vx = this.speed * cos;
+        this.vy = this.speed * sin;
+        // 重置流星
+        this.reset = function() {
+          this.x = this.xx;
+          this.y = this.yy;
+        }
+      }
+      // 绘制流星
+      Meteor.prototype.draw = function() {
+        ctx.save();
+        ctx.beginPath();
+        var gradient = ctx.createLinearGradient(this.x, this.y, this.x +
+          this.width, this.y - this.height);
+        gradient.addColorStop(0, 'white');
+        gradient.addColorStop(0.3, this.color);
+        gradient.addColorStop(0.6, setting.cBackground);
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = this.lineWidth;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.width, this.y - this.height);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+      }
+      Meteor.prototype.run = function() {
+        //重新计算位置，往左下移动
+        this.x = this.x - this.vx;
+        this.y = this.y + this.vy;
+        //透明度增加
+        this.alpha -= 0.002;
+        //重绘
+        this.draw();
+      }
+
+      // 初始化所有的流星
+      function initAllMeteor() {
+        var i = 0;
+        for (; i < +setting.mCount; i++) {
+          meteors.push(new Meteor());
+        }
+      }
+      // 绘制所有的流星
+      function drawAllMeteor() {
+        var i = 0;
+        for (; i < meteors.length; i++) {
+          meteors[i].draw();
+          meteors[i].run();
+          if (meteors[i].y - meteors[i].height > cv.height) { //超出界限后重来
+            meteors[i].reset();
+          }
+        }
+      }
+
+      // 主绘制函数
+      function render() {
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        // 绘制所有的星星
+        drawAllStar();
+        // 绘制所有的流星
+        drawAllMeteor();
+        requestAnimationFrame(render);
+      }
+
+      // 初始化
+      function init() {
+        // 初始化所有的星星
+        initAllStar();
+        // 绘制星星背景
+        ctx1.fillStyle = setting.cBackground;
+        ctx1.fillRect(0, 0, cv.width, cv.height);
+        if (+setting.sCount > 300) {
+          drawAllStar(true);
+        }
+        // 初始化所有的流星
+        initAllMeteor();
+        // 主绘制函数
+        render();
+      }
+
+      init();
+    })();
+  </script>
+</body>
+
+</html>
