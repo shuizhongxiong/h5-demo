@@ -4,8 +4,8 @@
 
 ## 预览
 
-* [时钟](https://shuizhongxiong.github.io/h5-demo/clock)
+* [时钟](https://shuizhongxiong.github.io/h5-demo/src/clock)
 
-* [微粒进度条](https://shuizhongxiong.github.io/h5-demo/particle)
+* [微粒进度条](https://shuizhongxiong.github.io/h5-demo/src/particle)
 
-* [放大镜](https://shuizhongxiong.github.io/h5-demo/magnifier)
+* [放大镜](https://shuizhongxiong.github.io/h5-demo/src/magnifier)
