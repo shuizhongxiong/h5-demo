@@ -1,0 +1,2008 @@
+const Data = [{
+    "date": "20180101",
+    "userDownload": 517243350,
+    "userRise": 3483978,
+    "userRiseCR": 0.067357,
+    "userRetention": 2896405,
+    "userRetentionCR": 0.83135,
+    "userActive": 123,
+    "userActiveCR": 0.1
+}, {
+    "date": "20180102",
+    "userDownload": 37155347,
+    "userRise": 3850086,
+    "userRiseCR": 0.103621,
+    "userRetention": 3201154,
+    "userRetentionCR": 0.83145,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180103",
+    "userDownload": 30185814,
+    "userRise": 3771825,
+    "userRiseCR": 0.124954,
+    "userRetention": 3090256,
+    "userRetentionCR": 0.8193,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180104",
+    "userDownload": 24611347,
+    "userRise": 3499910,
+    "userRiseCR": 0.142207,
+    "userRetention": 2861176,
+    "userRetentionCR": 0.8175,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180105",
+    "userDownload": 21208857,
+    "userRise": 3412841,
+    "userRiseCR": 0.160916,
+    "userRetention": 2831634,
+    "userRetentionCR": 0.8297,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180106",
+    "userDownload": 20452997,
+    "userRise": 3391259,
+    "userRiseCR": 0.165807,
+    "userRetention": 2831192,
+    "userRetentionCR": 0.83485,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180107",
+    "userDownload": 19682156,
+    "userRise": 3357327,
+    "userRiseCR": 0.170577,
+    "userRetention": 2788427,
+    "userRetentionCR": 0.83055,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180108",
+    "userDownload": 17950724,
+    "userRise": 3633254,
+    "userRiseCR": 0.202402,
+    "userRetention": 3008879,
+    "userRetentionCR": 0.8281499999999999,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180109",
+    "userDownload": 16209627,
+    "userRise": 4159597,
+    "userRiseCR": 0.256613,
+    "userRetention": 3426883,
+    "userRetentionCR": 0.82385,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180110",
+    "userDownload": 14832592,
+    "userRise": 3648578,
+    "userRiseCR": 0.245984,
+    "userRetention": 3035616,
+    "userRetentionCR": 0.832,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180111",
+    "userDownload": 14453798,
+    "userRise": 3648884,
+    "userRiseCR": 0.252452,
+    "userRetention": 3060683,
+    "userRetentionCR": 0.8388,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180112",
+    "userDownload": 14583238,
+    "userRise": 3615654,
+    "userRiseCR": 0.247932,
+    "userRetention": 3014551,
+    "userRetentionCR": 0.83375,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180113",
+    "userDownload": 14125783,
+    "userRise": 3413355,
+    "userRiseCR": 0.24164,
+    "userRetention": 2853735,
+    "userRetentionCR": 0.83605,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180114",
+    "userDownload": 14763526,
+    "userRise": 3398781,
+    "userRiseCR": 0.230215,
+    "userRetention": 2814190,
+    "userRetentionCR": 0.8280000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180115",
+    "userDownload": 2268748,
+    "userRise": 3758936,
+    "userRiseCR": 1.656833,
+    "userRetention": 3082515,
+    "userRetentionCR": 0.82005,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180116",
+    "userDownload": 6947798,
+    "userRise": 3603820,
+    "userRiseCR": 0.5187,
+    "userRetention": 2995314,
+    "userRetentionCR": 0.83115,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180117",
+    "userDownload": 11749464,
+    "userRise": 3650716,
+    "userRiseCR": 0.310713,
+    "userRetention": 3024070,
+    "userRetentionCR": 0.82835,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180118",
+    "userDownload": 11376810,
+    "userRise": 3445660,
+    "userRiseCR": 0.302867,
+    "userRetention": 2861103,
+    "userRetentionCR": 0.83035,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180119",
+    "userDownload": 11265681,
+    "userRise": 3567451,
+    "userRiseCR": 0.316665,
+    "userRetention": 3001296,
+    "userRetentionCR": 0.8412999999999999,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180120",
+    "userDownload": 11586514,
+    "userRise": 3326948,
+    "userRiseCR": 0.28714,
+    "userRetention": 2754879,
+    "userRetentionCR": 0.82805,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180121",
+    "userDownload": 11732895,
+    "userRise": 3249544,
+    "userRiseCR": 0.27696,
+    "userRetention": 2647565,
+    "userRetentionCR": 0.81475,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180122",
+    "userDownload": 11165152,
+    "userRise": 3525512,
+    "userRiseCR": 0.31576,
+    "userRetention": 2891801,
+    "userRetentionCR": 0.82025,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180123",
+    "userDownload": 10418802,
+    "userRise": 3702370,
+    "userRiseCR": 0.355355,
+    "userRetention": 3056306,
+    "userRetentionCR": 0.8255,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180124",
+    "userDownload": 10035822,
+    "userRise": 3751467,
+    "userRiseCR": 0.373808,
+    "userRetention": 3091396,
+    "userRetentionCR": 0.82405,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180125",
+    "userDownload": 10075790,
+    "userRise": 3538468,
+    "userRiseCR": 0.351185,
+    "userRetention": 2917820,
+    "userRetentionCR": 0.8246,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180126",
+    "userDownload": 10100654,
+    "userRise": 3785901,
+    "userRiseCR": 0.374817,
+    "userRetention": 3139079,
+    "userRetentionCR": 0.82915,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180127",
+    "userDownload": 10329471,
+    "userRise": 3427201,
+    "userRiseCR": 0.331789,
+    "userRetention": 2845090,
+    "userRetentionCR": 0.8301499999999999,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180128",
+    "userDownload": 10139487,
+    "userRise": 3361076,
+    "userRiseCR": 0.331484,
+    "userRetention": 2764485,
+    "userRetentionCR": 0.8225,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180129",
+    "userDownload": 9850662,
+    "userRise": 3306521,
+    "userRiseCR": 0.335665,
+    "userRetention": 2723416,
+    "userRetentionCR": 0.82365,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180130",
+    "userDownload": 9604234,
+    "userRise": 3203723,
+    "userRiseCR": 0.333574,
+    "userRetention": 2652842,
+    "userRetentionCR": 0.82805,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180131",
+    "userDownload": 9177036,
+    "userRise": 3097945,
+    "userRiseCR": 0.337576,
+    "userRetention": 2577800,
+    "userRetentionCR": 0.8321000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180201",
+    "userDownload": 9124008,
+    "userRise": 2970955,
+    "userRiseCR": 0.32562,
+    "userRetention": 2474954,
+    "userRetentionCR": 0.8330500000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180202",
+    "userDownload": 24787923,
+    "userRise": 3240967,
+    "userRiseCR": 0.130748,
+    "userRetention": 2683520,
+    "userRetentionCR": 0.8280000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180203",
+    "userDownload": 99709565,
+    "userRise": 3727360,
+    "userRiseCR": 0.037382,
+    "userRetention": 3081967,
+    "userRetentionCR": 0.82685,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180204",
+    "userDownload": 53633736,
+    "userRise": 3444635,
+    "userRiseCR": 0.064225,
+    "userRetention": 2828734,
+    "userRetentionCR": 0.8212,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180205",
+    "userDownload": 33672327,
+    "userRise": 3566270,
+    "userRiseCR": 0.105911,
+    "userRetention": 2912929,
+    "userRetentionCR": 0.8168,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180206",
+    "userDownload": 27244343,
+    "userRise": 3616131,
+    "userRiseCR": 0.13273,
+    "userRetention": 2986200,
+    "userRetentionCR": 0.8258,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180207",
+    "userDownload": 13930016,
+    "userRise": 3681156,
+    "userRiseCR": 0.264261,
+    "userRetention": 3052782,
+    "userRetentionCR": 0.8293,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180208",
+    "userDownload": 3706569,
+    "userRise": 3736116,
+    "userRiseCR": 1.007972,
+    "userRetention": 3091262,
+    "userRetentionCR": 0.8274,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180209",
+    "userDownload": 3669098,
+    "userRise": 3480072,
+    "userRiseCR": 0.948482,
+    "userRetention": 2907078,
+    "userRetentionCR": 0.83535,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180210",
+    "userDownload": 9574164,
+    "userRise": 3480368,
+    "userRiseCR": 0.363517,
+    "userRetention": 2916896,
+    "userRetentionCR": 0.8381000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180211",
+    "userDownload": 5990810,
+    "userRise": 3965832,
+    "userRiseCR": 0.661986,
+    "userRetention": 3318608,
+    "userRetentionCR": 0.8368,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180212",
+    "userDownload": 5466242,
+    "userRise": 3836582,
+    "userRiseCR": 0.701868,
+    "userRetention": 3205656,
+    "userRetentionCR": 0.83555,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180213",
+    "userDownload": 4723246,
+    "userRise": 3841875,
+    "userRiseCR": 0.813397,
+    "userRetention": 3168586,
+    "userRetentionCR": 0.82475,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180214",
+    "userDownload": 4615090,
+    "userRise": 3850071,
+    "userRiseCR": 0.834235,
+    "userRetention": 3151668,
+    "userRetentionCR": 0.8186,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180215",
+    "userDownload": 125026436,
+    "userRise": 3837933,
+    "userRiseCR": 0.030697,
+    "userRetention": 3165527,
+    "userRetentionCR": 0.8248,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180216",
+    "userDownload": 28805191,
+    "userRise": 4173254,
+    "userRiseCR": 0.144879,
+    "userRetention": 3474025,
+    "userRetentionCR": 0.83245,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180217",
+    "userDownload": 25231199,
+    "userRise": 3679135,
+    "userRiseCR": 0.145817,
+    "userRetention": 3087530,
+    "userRetentionCR": 0.8392,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180218",
+    "userDownload": 21234740,
+    "userRise": 3534230,
+    "userRiseCR": 0.166436,
+    "userRetention": 2953202,
+    "userRetentionCR": 0.8356,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180219",
+    "userDownload": 11087456,
+    "userRise": 3524564,
+    "userRiseCR": 0.317888,
+    "userRetention": 2907765,
+    "userRetentionCR": 0.825,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180220",
+    "userDownload": 18908382,
+    "userRise": 3664791,
+    "userRiseCR": 0.193818,
+    "userRetention": 3021070,
+    "userRetentionCR": 0.82435,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180221",
+    "userDownload": 18220304,
+    "userRise": 3709615,
+    "userRiseCR": 0.203598,
+    "userRetention": 3086399,
+    "userRetentionCR": 0.832,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180222",
+    "userDownload": 10057339,
+    "userRise": 3860654,
+    "userRiseCR": 0.383864,
+    "userRetention": 3194498,
+    "userRetentionCR": 0.82745,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180223",
+    "userDownload": 9697697,
+    "userRise": 3752818,
+    "userRiseCR": 0.38698,
+    "userRetention": 3102079,
+    "userRetentionCR": 0.8266,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180224",
+    "userDownload": 17032335,
+    "userRise": 3741314,
+    "userRiseCR": 0.219659,
+    "userRetention": 3084526,
+    "userRetentionCR": 0.82445,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180225",
+    "userDownload": 17534965,
+    "userRise": 3614300,
+    "userRiseCR": 0.20612,
+    "userRetention": 2968966,
+    "userRetentionCR": 0.82145,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180226",
+    "userDownload": 17098631,
+    "userRise": 3702488,
+    "userRiseCR": 0.216537,
+    "userRetention": 3052701,
+    "userRetentionCR": 0.8245,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180227",
+    "userDownload": 15726444,
+    "userRise": 3738073,
+    "userRiseCR": 0.237693,
+    "userRetention": 3104282,
+    "userRetentionCR": 0.83045,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180228",
+    "userDownload": 15240133,
+    "userRise": 3752730,
+    "userRiseCR": 0.24624,
+    "userRetention": 3141785,
+    "userRetentionCR": 0.8371999999999999,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180301",
+    "userDownload": 14464366,
+    "userRise": 3723702,
+    "userRiseCR": 0.25744,
+    "userRetention": 3074846,
+    "userRetentionCR": 0.82575,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180302",
+    "userDownload": 2875829,
+    "userRise": 3830315,
+    "userRiseCR": 1.331899,
+    "userRetention": 3140092,
+    "userRetentionCR": 0.8198,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180303",
+    "userDownload": 13497580,
+    "userRise": 3776052,
+    "userRiseCR": 0.279758,
+    "userRetention": 3120151,
+    "userRetentionCR": 0.8263,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180304",
+    "userDownload": 13107238,
+    "userRise": 3438448,
+    "userRiseCR": 0.262332,
+    "userRetention": 2868353,
+    "userRetentionCR": 0.8342,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180305",
+    "userDownload": 12080748,
+    "userRise": 3518208,
+    "userRiseCR": 0.291224,
+    "userRetention": 2948434,
+    "userRetentionCR": 0.83805,
+    "userActive": 2552098,
+    "userActiveCR": 0.8655775293780453
+}, {
+    "date": "20180306",
+    "userDownload": 14977557,
+    "userRise": 3692191,
+    "userRiseCR": 0.246515,
+    "userRetention": 3049934,
+    "userRetentionCR": 0.82605,
+    "userActive": 2624310,
+    "userActiveCR": 0.8604483007953724
+}, {
+    "date": "20180307",
+    "userDownload": 55308748,
+    "userRise": 3845389,
+    "userRiseCR": 0.069526,
+    "userRetention": 3145143,
+    "userRetentionCR": 0.8179,
+    "userActive": 2714415,
+    "userActiveCR": 0.8630500758725341
+}, {
+    "date": "20180308",
+    "userDownload": 78882491,
+    "userRise": 3701110,
+    "userRiseCR": 0.046919,
+    "userRetention": 3054896,
+    "userRetentionCR": 0.8254,
+    "userActive": 2640384,
+    "userActiveCR": 0.8643122676579925
+}, {
+    "date": "20180309",
+    "userDownload": 42609518,
+    "userRise": 3701781,
+    "userRiseCR": 0.086877,
+    "userRetention": 3082658,
+    "userRetentionCR": 0.83275,
+    "userActive": 2670315,
+    "userActiveCR": 0.8662379421221865
+}, {
+    "date": "20180310",
+    "userDownload": 34751238,
+    "userRise": 3441890,
+    "userRiseCR": 0.099044,
+    "userRetention": 2853326,
+    "userRetentionCR": 0.829,
+    "userActive": 2473256,
+    "userActiveCR": 0.8667977390022118
+}, {
+    "date": "20180311",
+    "userDownload": 32003074,
+    "userRise": 3007508,
+    "userRiseCR": 0.093976,
+    "userRetention": 2492773,
+    "userRetentionCR": 0.82885,
+    "userActive": 2125248,
+    "userActiveCR": 0.8525641025641025
+}, {
+    "date": "20180312",
+    "userDownload": 27796390,
+    "userRise": 3458732,
+    "userRiseCR": 0.124431,
+    "userRetention": 2877665,
+    "userRetentionCR": 0.832,
+    "userActive": 2433197,
+    "userActiveCR": 0.8455457585892369
+}, {
+    "date": "20180313",
+    "userDownload": 23324179,
+    "userRise": 3709853,
+    "userRiseCR": 0.159056,
+    "userRetention": 3057660,
+    "userRetentionCR": 0.8242,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180314",
+    "userDownload": 22085386,
+    "userRise": 3933058,
+    "userRiseCR": 0.178084,
+    "userRetention": 3254408,
+    "userRetentionCR": 0.82745,
+    "userActive": 2809479,
+    "userActiveCR": 0.8632842757552285
+}, {
+    "date": "20180315",
+    "userDownload": 20273814,
+    "userRise": 3699493,
+    "userRiseCR": 0.182476,
+    "userRetention": 3073538,
+    "userRetentionCR": 0.8308,
+    "userActive": 2615468,
+    "userActiveCR": 0.8509634290208415
+}, {
+    "date": "20180316",
+    "userDownload": 18549619,
+    "userRise": 3701714,
+    "userRiseCR": 0.199557,
+    "userRetention": 3056875,
+    "userRetentionCR": 0.8258,
+    "userActive": 2613103,
+    "userActiveCR": 0.8548282566429034
+}, {
+    "date": "20180317",
+    "userDownload": 19232109,
+    "userRise": 3225656,
+    "userRiseCR": 0.167722,
+    "userRetention": 2665520,
+    "userRetentionCR": 0.82635,
+    "userActive": 2273568,
+    "userActiveCR": 0.8529550827423168
+}, {
+    "date": "20180318",
+    "userDownload": 20132452,
+    "userRise": 3225364,
+    "userRiseCR": 0.160207,
+    "userRetention": 2660441,
+    "userRetentionCR": 0.82485,
+    "userActive": 2233159,
+    "userActiveCR": 0.8393946238988028
+}, {
+    "date": "20180319",
+    "userDownload": 18241549,
+    "userRise": 3700689,
+    "userRiseCR": 0.202871,
+    "userRetention": 3074902,
+    "userRetentionCR": 0.8309,
+    "userActive": 2620954,
+    "userActiveCR": 0.8523700742432896
+}, {
+    "date": "20180320",
+    "userDownload": 15884179,
+    "userRise": 3699240,
+    "userRiseCR": 0.232888,
+    "userRetention": 3100148,
+    "userRetentionCR": 0.83805,
+    "userActive": 2645658,
+    "userActiveCR": 0.853397341211226
+}, {
+    "date": "20180321",
+    "userDownload": 14919067,
+    "userRise": 3629023,
+    "userRiseCR": 0.243247,
+    "userRetention": 3028056,
+    "userRetentionCR": 0.8344,
+    "userActive": 2579280,
+    "userActiveCR": 0.8517940717628705
+}, {
+    "date": "20180322",
+    "userDownload": 14501627,
+    "userRise": 3840018,
+    "userRiseCR": 0.264799,
+    "userRetention": 3176270,
+    "userRetentionCR": 0.82715,
+    "userActive": 2721205,
+    "userActiveCR": 0.856729975227085
+}, {
+    "date": "20180323",
+    "userDownload": 13753378,
+    "userRise": 3763418,
+    "userRiseCR": 0.273636,
+    "userRetention": 3098422,
+    "userRetentionCR": 0.8233,
+    "userActive": 2672064,
+    "userActiveCR": 0.8623953403713142
+}, {
+    "date": "20180324",
+    "userDownload": 13933868,
+    "userRise": 4008128,
+    "userRiseCR": 0.287654,
+    "userRetention": 3322938,
+    "userRetentionCR": 0.8290500000000001,
+    "userActive": 2875210,
+    "userActiveCR": 0.8652614727854856
+}, {
+    "date": "20180325",
+    "userDownload": 14920631,
+    "userRise": 3302896,
+    "userRiseCR": 0.221364,
+    "userRetention": 2732155,
+    "userRetentionCR": 0.8271999999999999,
+    "userActive": 2316721,
+    "userActiveCR": 0.8479464025633556
+}, {
+    "date": "20180326",
+    "userDownload": 13546693,
+    "userRise": 3560345,
+    "userRiseCR": 0.26282,
+    "userRetention": 2917880,
+    "userRetentionCR": 0.81955,
+    "userActive": 2517189,
+    "userActiveCR": 0.8626775721050366
+}, {
+    "date": "20180327",
+    "userDownload": 12042545,
+    "userRise": 3934003,
+    "userRiseCR": 0.326675,
+    "userRetention": 3246535,
+    "userRetentionCR": 0.82525,
+    "userActive": 2813547,
+    "userActiveCR": 0.8666309587573647
+}, {
+    "date": "20180328",
+    "userDownload": 12327323,
+    "userRise": 3838520,
+    "userRiseCR": 0.311383,
+    "userRetention": 3172728,
+    "userRetentionCR": 0.82655,
+    "userActive": 2735827,
+    "userActiveCR": 0.8622950819672132
+}, {
+    "date": "20180329",
+    "userDownload": 11549137,
+    "userRise": 3802662,
+    "userRiseCR": 0.329259,
+    "userRetention": 3110577,
+    "userRetentionCR": 0.8180000000000001,
+    "userActive": 2721754,
+    "userActiveCR": 0.875
+}, {
+    "date": "20180330",
+    "userDownload": 11873549,
+    "userRise": 3704146,
+    "userRiseCR": 0.311966,
+    "userRetention": 3046845,
+    "userRetentionCR": 0.82255,
+    "userActive": 2654581,
+    "userActiveCR": 0.8712559117183395
+}, {
+    "date": "20180331",
+    "userDownload": 12489798,
+    "userRise": 3656236,
+    "userRiseCR": 0.292738,
+    "userRetention": 3017491,
+    "userRetentionCR": 0.8253,
+    "userActive": 2645934,
+    "userActiveCR": 0.8768656716417911
+}, {
+    "date": "20180401",
+    "userDownload": 12829822,
+    "userRise": 3624768,
+    "userRiseCR": 0.282527,
+    "userRetention": 2970134,
+    "userRetentionCR": 0.8194,
+    "userActive": 2600797,
+    "userActiveCR": 0.8756497401039585
+}, {
+    "date": "20180402",
+    "userDownload": 11821495,
+    "userRise": 3790100,
+    "userRiseCR": 0.320611,
+    "userRetention": 3124368,
+    "userRetentionCR": 0.82435,
+    "userActive": 2779133,
+    "userActiveCR": 0.8895027624309392
+}, {
+    "date": "20180403",
+    "userDownload": 10703681,
+    "userRise": 3791046,
+    "userRiseCR": 0.354182,
+    "userRetention": 3118324,
+    "userRetentionCR": 0.82255,
+    "userActive": 2722492,
+    "userActiveCR": 0.8730627306273063
+}, {
+    "date": "20180404",
+    "userDownload": 10513137,
+    "userRise": 4260128,
+    "userRiseCR": 0.405219,
+    "userRetention": 3485849,
+    "userRetentionCR": 0.81825,
+    "userActive": 3130936,
+    "userActiveCR": 0.8981846882399369
+}, {
+    "date": "20180405",
+    "userDownload": 11313036,
+    "userRise": 4071198,
+    "userRiseCR": 0.359868,
+    "userRetention": 3381944,
+    "userRetentionCR": 0.8307,
+    "userActive": 3050282,
+    "userActiveCR": 0.9019316493313522
+}, {
+    "date": "20180406",
+    "userDownload": 12102631,
+    "userRise": 3825277,
+    "userRiseCR": 0.31607,
+    "userRetention": 3166181,
+    "userRetentionCR": 0.8277,
+    "userActive": 2776497,
+    "userActiveCR": 0.8769230769230769
+}, {
+    "date": "20180407",
+    "userDownload": 11229969,
+    "userRise": 3506707,
+    "userRiseCR": 0.312263,
+    "userRetention": 2887247,
+    "userRetentionCR": 0.82335,
+    "userActive": 2537172,
+    "userActiveCR": 0.8787515006002401
+}, {
+    "date": "20180408",
+    "userDownload": 10245783,
+    "userRise": 3514411,
+    "userRiseCR": 0.34301,
+    "userRetention": 2900443,
+    "userRetentionCR": 0.8253,
+    "userActive": 2566594,
+    "userActiveCR": 0.8848973607038123
+}, {
+    "date": "20180409",
+    "userDownload": 8496522,
+    "userRise": 3583957,
+    "userRiseCR": 0.421815,
+    "userRetention": 2942070,
+    "userRetentionCR": 0.8209,
+    "userActive": 2545800,
+    "userActiveCR": 0.86530931871574
+}, {
+    "date": "20180410",
+    "userDownload": 7163090,
+    "userRise": 3693207,
+    "userRiseCR": 0.515589,
+    "userRetention": 3033969,
+    "userRetentionCR": 0.8215,
+    "userActive": 2685014,
+    "userActiveCR": 0.8849840255591054
+}, {
+    "date": "20180411",
+    "userDownload": 10611713,
+    "userRise": 3474572,
+    "userRiseCR": 0.327428,
+    "userRetention": 2853665,
+    "userRetentionCR": 0.8213,
+    "userActive": 2525133,
+    "userActiveCR": 0.8848739495798319
+}, {
+    "date": "20180412",
+    "userDownload": 38004078,
+    "userRise": 3737275,
+    "userRiseCR": 0.098339,
+    "userRetention": 3086615,
+    "userRetentionCR": 0.8259,
+    "userActive": 2809058,
+    "userActiveCR": 0.9100775193798449
+}, {
+    "date": "20180413",
+    "userDownload": 59577884,
+    "userRise": 3983344,
+    "userRiseCR": 0.066859,
+    "userRetention": 3287852,
+    "userRetentionCR": 0.8254,
+    "userActive": 2955100,
+    "userActiveCR": 0.8987935656836461
+}, {
+    "date": "20180414",
+    "userDownload": 33114491,
+    "userRise": 3899398,
+    "userRiseCR": 0.117755,
+    "userRetention": 3199651,
+    "userRetentionCR": 0.82055,
+    "userActive": 2889422,
+    "userActiveCR": 0.9030431705590941
+}, {
+    "date": "20180415",
+    "userDownload": 25792382,
+    "userRise": 4076194,
+    "userRiseCR": 0.158039,
+    "userRetention": 3341867,
+    "userRetentionCR": 0.81985,
+    "userActive": 3015831,
+    "userActiveCR": 0.9024390243902439
+}, {
+    "date": "20180416",
+    "userDownload": 21188623,
+    "userRise": 4270233,
+    "userRiseCR": 0.201534,
+    "userRetention": 3492196,
+    "userRetentionCR": 0.8178,
+    "userActive": 3112531,
+    "userActiveCR": 0.8912820512820513
+}, {
+    "date": "20180417",
+    "userDownload": 18148452,
+    "userRise": 4207295,
+    "userRiseCR": 0.231827,
+    "userRetention": 3443670,
+    "userRetentionCR": 0.8185,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180418",
+    "userDownload": 16167261,
+    "userRise": 4189669,
+    "userRiseCR": 0.259145,
+    "userRetention": 3448307,
+    "userRetentionCR": 0.8230500000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180419",
+    "userDownload": 15619969,
+    "userRise": 4137167,
+    "userRiseCR": 0.264864,
+    "userRetention": 3395786,
+    "userRetentionCR": 0.8208,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180420",
+    "userDownload": 15120436,
+    "userRise": 4171290,
+    "userRiseCR": 0.275871,
+    "userRetention": 3424837,
+    "userRetentionCR": 0.8210500000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180421",
+    "userDownload": 15244195,
+    "userRise": 3791333,
+    "userRiseCR": 0.248707,
+    "userRetention": 3125764,
+    "userRetentionCR": 0.82445,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180422",
+    "userDownload": 15526810,
+    "userRise": 3953490,
+    "userRiseCR": 0.254623,
+    "userRetention": 3254315,
+    "userRetentionCR": 0.82315,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180423",
+    "userDownload": 14454218,
+    "userRise": 4211650,
+    "userRiseCR": 0.291379,
+    "userRetention": 3482402,
+    "userRetentionCR": 0.82685,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180424",
+    "userDownload": 13297892,
+    "userRise": 4582492,
+    "userRiseCR": 0.344603,
+    "userRetention": 3784680,
+    "userRetentionCR": 0.8259,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180425",
+    "userDownload": 12514265,
+    "userRise": 4340581,
+    "userRiseCR": 0.346851,
+    "userRetention": 3550595,
+    "userRetentionCR": 0.8180000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180426",
+    "userDownload": 11983705,
+    "userRise": 3824765,
+    "userRiseCR": 0.319164,
+    "userRetention": 3163654,
+    "userRetentionCR": 0.82715,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180427",
+    "userDownload": 11419814,
+    "userRise": 3364294,
+    "userRiseCR": 0.294601,
+    "userRetention": 2826343,
+    "userRetentionCR": 0.8401000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180428",
+    "userDownload": 11104670,
+    "userRise": 3264684,
+    "userRiseCR": 0.293992,
+    "userRetention": 2732214,
+    "userRetentionCR": 0.8369,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180429",
+    "userDownload": 11789635,
+    "userRise": 4280800,
+    "userRiseCR": 0.363099,
+    "userRetention": 3556702,
+    "userRetentionCR": 0.83085,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180430",
+    "userDownload": 12405160,
+    "userRise": 3287543,
+    "userRiseCR": 0.265014,
+    "userRetention": 2704497,
+    "userRetentionCR": 0.82265,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180501",
+    "userDownload": 11839378,
+    "userRise": 3816057,
+    "userRiseCR": 0.322319,
+    "userRetention": 3148437,
+    "userRetentionCR": 0.8250500000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180502",
+    "userDownload": 10891495,
+    "userRise": 3609960,
+    "userRiseCR": 0.331448,
+    "userRetention": 2978577,
+    "userRetentionCR": 0.8251,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180503",
+    "userDownload": 9795954,
+    "userRise": 3470408,
+    "userRiseCR": 0.35427,
+    "userRetention": 2868639,
+    "userRetentionCR": 0.8266,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180504",
+    "userDownload": 9322786,
+    "userRise": 3687770,
+    "userRiseCR": 0.395565,
+    "userRetention": 3057714,
+    "userRetentionCR": 0.82915,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180505",
+    "userDownload": 18963448,
+    "userRise": 3770142,
+    "userRiseCR": 0.198811,
+    "userRetention": 3109424,
+    "userRetentionCR": 0.82475,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180506",
+    "userDownload": 19281572,
+    "userRise": 3523733,
+    "userRiseCR": 0.182751,
+    "userRetention": 2935621,
+    "userRetentionCR": 0.8331,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180507",
+    "userDownload": 8952055,
+    "userRise": 3658006,
+    "userRiseCR": 0.408622,
+    "userRetention": 3048582,
+    "userRetentionCR": 0.8334,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180508",
+    "userDownload": 8521144,
+    "userRise": 3636309,
+    "userRiseCR": 0.42674,
+    "userRetention": 3010863,
+    "userRetentionCR": 0.8280000000000001,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180509",
+    "userDownload": 8327705,
+    "userRise": 3745302,
+    "userRiseCR": 0.44974,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8752823086574655
+}, {
+    "date": "20180510",
+    "userDownload": 8305106,
+    "userRise": 4033244,
+    "userRiseCR": 0.485634,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8752631578947369
+}, {
+    "date": "20180511",
+    "userDownload": 8117215,
+    "userRise": 4196302,
+    "userRiseCR": 0.516963,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8754876462938882
+}, {
+    "date": "20180512",
+    "userDownload": 8573144,
+    "userRise": 3634262,
+    "userRiseCR": 0.423912,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180513",
+    "userDownload": 8800156,
+    "userRise": 4219671,
+    "userRiseCR": 0.4795,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8927267621454648
+}, {
+    "date": "20180514",
+    "userDownload": 8166265,
+    "userRise": 4398353,
+    "userRiseCR": 0.5386,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8976109215017065
+}, {
+    "date": "20180515",
+    "userDownload": 7712218,
+    "userRise": 4418547,
+    "userRiseCR": 0.572928,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180516",
+    "userDownload": 7215930,
+    "userRise": 3785699,
+    "userRiseCR": 0.524631,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8710664335664335
+}, {
+    "date": "20180517",
+    "userDownload": 7051339,
+    "userRise": 3345700,
+    "userRiseCR": 0.474477,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.858568177840014
+}, {
+    "date": "20180518",
+    "userDownload": 6814506,
+    "userRise": 3270627,
+    "userRiseCR": 0.479951,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8642260017296051
+}, {
+    "date": "20180519",
+    "userDownload": 7006429,
+    "userRise": 3745800,
+    "userRiseCR": 0.534623,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8559130528354676
+}, {
+    "date": "20180520",
+    "userDownload": 7976218,
+    "userRise": 3605164,
+    "userRiseCR": 0.451989,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8431657665143332
+}, {
+    "date": "20180521",
+    "userDownload": 7558024,
+    "userRise": 3681906,
+    "userRiseCR": 0.487152,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8582003238491788
+}, {
+    "date": "20180522",
+    "userDownload": 7100429,
+    "userRise": 3847741,
+    "userRiseCR": 0.541903,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8364539007092199
+}, {
+    "date": "20180523",
+    "userDownload": 6602032,
+    "userRise": 3589166,
+    "userRiseCR": 0.543646,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8478841557711233
+}, {
+    "date": "20180524",
+    "userDownload": 6623822,
+    "userRise": 3187658,
+    "userRiseCR": 0.481241,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8582969143159846
+}, {
+    "date": "20180525",
+    "userDownload": 6373176,
+    "userRise": 3454160,
+    "userRiseCR": 0.541984,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.845623113410953
+}, {
+    "date": "20180526",
+    "userDownload": 7042841,
+    "userRise": 4079163,
+    "userRiseCR": 0.579193,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8508371385083714
+}, {
+    "date": "20180527",
+    "userDownload": 7272615,
+    "userRise": 4239722,
+    "userRiseCR": 0.582971,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8386695421366954
+}, {
+    "date": "20180528",
+    "userDownload": 6721043,
+    "userRise": 3791113,
+    "userRiseCR": 0.564066,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8195083733228871
+}, {
+    "date": "20180529",
+    "userDownload": 6256724,
+    "userRise": 3386119,
+    "userRiseCR": 0.541197,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8019736842105263
+}, {
+    "date": "20180530",
+    "userDownload": 5954997,
+    "userRise": 3273796,
+    "userRiseCR": 0.549756,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8554143980641258
+}, {
+    "date": "20180531",
+    "userDownload": 15471580,
+    "userRise": 3377151,
+    "userRiseCR": 0.218281,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8471581316826111
+}, {
+    "date": "20180601",
+    "userDownload": 116306927,
+    "userRise": 3824700,
+    "userRiseCR": 0.032885,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8568518026397378
+}, {
+    "date": "20180602",
+    "userDownload": 120954250,
+    "userRise": 4286113,
+    "userRiseCR": 0.035436,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8459749418561032
+}, {
+    "date": "20180603",
+    "userDownload": 83080895,
+    "userRise": 4343150,
+    "userRiseCR": 0.052276,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8272919439442574
+}, {
+    "date": "20180604",
+    "userDownload": 67536024,
+    "userRise": 3988538,
+    "userRiseCR": 0.059058,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.848852157943067
+}, {
+    "date": "20180605",
+    "userDownload": 54610592,
+    "userRise": 3632456,
+    "userRiseCR": 0.066516,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8493599590373784
+}, {
+    "date": "20180606",
+    "userDownload": 48831790,
+    "userRise": 3657287,
+    "userRiseCR": 0.074896,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8508132920866182
+}, {
+    "date": "20180607",
+    "userDownload": 44225526,
+    "userRise": 3471868,
+    "userRiseCR": 0.078504,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8447885196374623
+}, {
+    "date": "20180608",
+    "userDownload": 41581362,
+    "userRise": 4096416,
+    "userRiseCR": 0.098516,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8547368421052631
+}, {
+    "date": "20180609",
+    "userDownload": 21608429,
+    "userRise": 4552315,
+    "userRiseCR": 0.210673,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8524393683023125
+}, {
+    "date": "20180610",
+    "userDownload": 42051969,
+    "userRise": 4628697,
+    "userRiseCR": 0.110071,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8422025129342202
+}, {
+    "date": "20180611",
+    "userDownload": 39392880,
+    "userRise": 4293639,
+    "userRiseCR": 0.108995,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8473244968090329
+}, {
+    "date": "20180612",
+    "userDownload": 36695269,
+    "userRise": 3729912,
+    "userRiseCR": 0.101646,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8480289468672634
+}, {
+    "date": "20180613",
+    "userDownload": 38646467,
+    "userRise": 3451676,
+    "userRiseCR": 0.089314,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8490880564816631
+}, {
+    "date": "20180614",
+    "userDownload": 2153292,
+    "userRise": 3257613,
+    "userRiseCR": 1.512852,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8483014447481453
+}, {
+    "date": "20180615",
+    "userDownload": 35201619,
+    "userRise": 3466340,
+    "userRiseCR": 0.098471,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.85119985987038
+}, {
+    "date": "20180616",
+    "userDownload": 36010148,
+    "userRise": 4263485,
+    "userRiseCR": 0.118397,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8515619440688821
+}, {
+    "date": "20180617",
+    "userDownload": 33819082,
+    "userRise": 5180114,
+    "userRiseCR": 0.153171,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8385272263502274
+}, {
+    "date": "20180618",
+    "userDownload": 33413666,
+    "userRise": 4847253,
+    "userRiseCR": 0.145068,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.839219921229831
+}, {
+    "date": "20180619",
+    "userDownload": 33166109,
+    "userRise": 4206466,
+    "userRiseCR": 0.12683,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8504401131719586
+}, {
+    "date": "20180620",
+    "userDownload": 32262841,
+    "userRise": 3635104,
+    "userRiseCR": 0.112672,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8566887912498832
+}, {
+    "date": "20180621",
+    "userDownload": 33685191,
+    "userRise": 3508231,
+    "userRiseCR": 0.104148,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8528696278944049
+}, {
+    "date": "20180622",
+    "userDownload": 33023020,
+    "userRise": 3688269,
+    "userRiseCR": 0.111688,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8523676880222841
+}, {
+    "date": "20180623",
+    "userDownload": 32560639,
+    "userRise": 4311235,
+    "userRiseCR": 0.132406,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8472023979446189
+}, {
+    "date": "20180624",
+    "userDownload": 33020320,
+    "userRise": 4589933,
+    "userRiseCR": 0.139003,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": 0.8344384583506009
+}, {
+    "date": "20180625",
+    "userDownload": 31873728,
+    "userRise": 4392317,
+    "userRiseCR": 0.137804,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180626",
+    "userDownload": null,
+    "userRise": 4082414,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180627",
+    "userDownload": null,
+    "userRise": 3882223,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180628",
+    "userDownload": null,
+    "userRise": 3951988,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180629",
+    "userDownload": null,
+    "userRise": 4134762,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180630",
+    "userDownload": null,
+    "userRise": 4671880,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180701",
+    "userDownload": null,
+    "userRise": 5180278,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180702",
+    "userDownload": null,
+    "userRise": 5203424,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180703",
+    "userDownload": null,
+    "userRise": 4962052,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180704",
+    "userDownload": null,
+    "userRise": 4832242,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180705",
+    "userDownload": null,
+    "userRise": 4860779,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180706",
+    "userDownload": null,
+    "userRise": 4986672,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180707",
+    "userDownload": null,
+    "userRise": 5393859,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180708",
+    "userDownload": null,
+    "userRise": 5701319,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180709",
+    "userDownload": null,
+    "userRise": 5483561,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180710",
+    "userDownload": null,
+    "userRise": 5396524,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180711",
+    "userDownload": null,
+    "userRise": 5173226,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180712",
+    "userDownload": null,
+    "userRise": 3866022,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180713",
+    "userDownload": null,
+    "userRise": 3906051,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180714",
+    "userDownload": null,
+    "userRise": 5400064,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180715",
+    "userDownload": null,
+    "userRise": 5401345,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180716",
+    "userDownload": null,
+    "userRise": 4861211,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180717",
+    "userDownload": null,
+    "userRise": 4580595,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180718",
+    "userDownload": null,
+    "userRise": 4596339,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180719",
+    "userDownload": null,
+    "userRise": 4334935,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180720",
+    "userDownload": null,
+    "userRise": 4370604,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180721",
+    "userDownload": null,
+    "userRise": 5055503,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180722",
+    "userDownload": null,
+    "userRise": 5218536,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180723",
+    "userDownload": null,
+    "userRise": 4850867,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180724",
+    "userDownload": null,
+    "userRise": 4559338,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180725",
+    "userDownload": null,
+    "userRise": 4394181,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180726",
+    "userDownload": null,
+    "userRise": 4282041,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180727",
+    "userDownload": null,
+    "userRise": 4059984,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180728",
+    "userDownload": null,
+    "userRise": 5071568,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180729",
+    "userDownload": null,
+    "userRise": 4682934,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180730",
+    "userDownload": null,
+    "userRise": 4170741,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180731",
+    "userDownload": null,
+    "userRise": 3972136,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180801",
+    "userDownload": null,
+    "userRise": 4356009,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180802",
+    "userDownload": null,
+    "userRise": 4233179,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180803",
+    "userDownload": null,
+    "userRise": 4160682,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180804",
+    "userDownload": null,
+    "userRise": 4397419,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180805",
+    "userDownload": null,
+    "userRise": 4541247,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180806",
+    "userDownload": null,
+    "userRise": 4567420,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180807",
+    "userDownload": null,
+    "userRise": 4247698,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180808",
+    "userDownload": null,
+    "userRise": 4058641,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180809",
+    "userDownload": null,
+    "userRise": 4195581,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180810",
+    "userDownload": null,
+    "userRise": 4299318,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}, {
+    "date": "20180811",
+    "userDownload": null,
+    "userRise": 4537477,
+    "userRiseCR": null,
+    "userRetention": null,
+    "userRetentionCR": null,
+    "userActive": null,
+    "userActiveCR": null
+}];

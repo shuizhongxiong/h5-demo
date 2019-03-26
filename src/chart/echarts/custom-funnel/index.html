@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>自定义漏斗图</title>
+  <style src="https://at.alicdn.com/t/font_750364_rm7e7fmwfz.css"></style>
+</head>
+
+<body>
+  <div id="main" style="width: 1000px;height:500px;"></div>
+  <div id="main1Date"></div>
+  <div id="main1" style="width: 500px;height:380px;"></div>
+
+  <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts.js"></script>
+  <script src="data.js"></script>
+  <script>
+    let data = Data;
+    let ColorLib = ['#23A597', '#0A689C', '#0BB2DD', '#EF494A', '#F9D827',
+      '#C26CB1', '#473E86', '#C26CB1', '#14497F'
+    ];
+    let dateList = [];
+    let seriesList = [];
+    let seriesMap = {
+      userRiseCR: '新增转化率',
+      userRetentionCR: '留存转化率',
+      userActiveCR: '活跃转化率'
+    };
+    data.forEach((item) => {
+      dateList.push(item.date);
+
+      let keys = Object.keys(seriesMap);
+      keys.forEach((key, i) => {
+        if (!seriesList[i]) {
+          seriesList[i] = {
+            type: 'line',
+            name: seriesMap[key],
+            data: []
+          }
+        }
+        let value = ((item[key] || 0) * 100).toFixed(2);
+        seriesList[i].data.push(value);
+      });
+    });
+
+    // 基于准备好的dom，初始化echarts实例
+    let lineChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    let lineOption = {
+      tooltip: {
+        trigger: 'axis',
+        formatter: (params) => {
+          let name = params[0].name;
+          let content = '';
+          params.forEach(item => {
+            content += `<br>${item.marker}
+                    ${item.seriesName}：${item.value ? (item.value * 100).toFixed(3) + '%' :
+                '0'}`;
+          });
+          // 更改漏斗图
+          let dataIndex = params[0].dataIndex;
+          changeFunnel(dataIndex);
+          return `${name}${content}`;
+        }
+      },
+      legend: {
+        data: Object.values(seriesMap)
+      },
+      xAxis: [{
+        type: 'category',
+        data: data.map((item) => item.date)
+      }],
+      yAxis: {
+        type: 'value'
+      },
+      series: seriesList,
+      color: ColorLib
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    lineChart.setOption(lineOption);
+
+    // 基于准备好的dom，初始化echarts实例
+    let funnelChart = echarts.init(document.getElementById('main1'));
+    // 指定图表的配置项和数据
+    let funnelData = getData(0);
+    let funnelData1 = getData1(0);
+    let funnelConfig = {
+      barHeight: 50,
+      shadowHeight: 60,
+      textLeft: 12,
+      gridWidth: '76%',
+      gridRatio: 0.76,
+      colorLib: ['#D6EAC9', '#52B782', '#23A597', '#1B676B'],
+      textColorLib: ['#14497F', '#1E75B9', '#0BB2DD']
+    };
+    let funnelOption = {
+      xAxis: [{
+        type: 'value',
+        show: false
+      }],
+      yAxis: [{
+        type: 'value',
+        show: false
+      }],
+      grid: {
+        width: funnelConfig.gridWidth,
+      },
+      series: [{
+        type: 'custom',
+        renderItem: (params, api) => {
+          let height = funnelConfig.barHeight;
+          let gap = funnelConfig.shadowHeight;
+          let textLeft = funnelConfig.textLeft;
+          let domWidth = api.getWidth() * funnelConfig.gridRatio;
+
+          let index = api.value(0);
+          let value = api.value(1) || 0;
+          let name = api.value(2);
+
+          let coord = api.coord([value, index]);
+          let barWidth = (value === 0) ? (domWidth - 1) : Math.min(
+            coord[0],
+            domWidth);
+
+          return {
+            type: 'group',
+            children: [{
+              type: 'rect',
+              shape: {
+                x: 0,
+                y: index * (height + gap),
+                width: barWidth,
+                height: height
+              },
+              style: {
+                fill: (value === 0) ? '#fff' : funnelConfig
+                  .colorLib[
+                    index],
+                stroke: (value === 0) ? '#DFE2E5' : null,
+                lineWidth: 1
+              }
+            }, {
+              type: 'text',
+              position: [
+                barWidth + textLeft,
+                index * (height + gap) + 7
+              ],
+              style: {
+                text: name,
+                font: '12px "STHeiti", sans-serif',
+                fill: '#7F8FA4'
+              }
+            }, {
+              type: 'text',
+              position: [
+                barWidth + textLeft,
+                index * (height + gap) + 7 + 14 + 6
+              ],
+              style: {
+                text: value || '--',
+                font: 'bolder 14px "Microsoft YaHei", sans-serif',
+                fill: '#354052'
+              }
+            }]
+          };
+        },
+        encode: {
+          x: 1,
+          y: 0,
+        },
+        data: funnelData
+      }, {
+        type: 'custom',
+        renderItem: (params, api) => {
+          let height = funnelConfig.barHeight;
+          let gap = funnelConfig.shadowHeight;
+          let domWidth = api.getWidth() * funnelConfig.gridRatio;
+
+          let index = api.value(0);
+          let value = api.value(1) ? (api.value(1) * 100).toFixed(2) :
+            0;
+          let name = api.value(2);
+
+          let start = api.value(3) ? api.coord([api.value(3), index]) :
+            [domWidth];
+          let end = api.value(4) ? api.coord([api.value(4) || 0,
+            index
+          ]) : [domWidth];
+
+          let startLeft = index * (height + gap) + height;
+          let startRight = Math.min(start[0], domWidth);
+          let endLef = (index + 1) * (height + gap);
+          let endRight = Math.min(end[0], domWidth);
+
+          let top = [0, startLeft];
+          let right = [startRight, startLeft];
+          let bottom = [endRight, endLef];
+          let left = [0, endLef];
+
+          return {
+            type: 'group',
+            children: [{
+              type: 'polygon',
+              shape: {
+                points: [top, right, bottom, left]
+              },
+              style: {
+                fill: '#F4F6F9'
+              }
+            }, {
+              type: 'text',
+              position: [
+                16,
+                top[1] + 24
+              ],
+              style: {
+                text: `${name}`,
+                font: 'bolder 1em',
+                fill: '#354052'
+              }
+            }, {
+              type: 'text',
+              position: [
+                16 + 70 + 7,
+                top[1] + 24
+              ],
+              style: {
+                text: `${value ? value + '%' : '--'}`,
+                font: 'bolder 1em',
+                fill: funnelConfig.textColorLib[index]
+              }
+            }]
+          }
+        },
+        encode: {
+          x: 3,
+          y: 0,
+        },
+        data: funnelData1
+      }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    funnelChart.setOption(funnelOption);
+
+
+    let dateEl = document.getElementById('main1Date');
+    dateEl.innerText = data[0].date;
+
+    function changeFunnel(idx) {
+      dateEl.innerText = data[idx].date;
+      funnelChart.setOption({
+        series: [{
+            data: getData(idx)
+          },
+          {
+            data: getData1(idx)
+          },
+        ]
+      });
+    }
+
+    function getData(idx) {
+      let item = data[idx];
+      return [ // [index, value, name]
+        [0, item.userDownload, '下载用户'],
+        [1, item.userRise, '新增用户'],
+        [2, item.userRetention, '留存用户'],
+        [3, item.userActive, '活跃用户'],
+      ];
+    }
+
+    function getData1(idx) {
+      let item = data[idx];
+      return [ // [index, value, name, barTop, barBottom]
+        [0, item.userRiseCR, '新增转化率', item.userDownload, item.userRise],
+        [1, item.userRetentionCR, '留存转化率', item.userRise, item.userRetention],
+        [2, item.userActiveCR, '活跃转化率', item.userRetention, item.userActive]
+      ];
+    }
+  </script>
+</body>
+
+</html>

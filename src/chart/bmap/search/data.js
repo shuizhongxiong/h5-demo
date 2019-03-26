@@ -1,0 +1,78 @@
+const DATA = [{
+  "all_num": 1633143,
+  "area": "宝安区",
+  "area_code": "440306",
+  "city": "深圳市",
+  "life_num": 142038,
+  "work_num": 628269
+}, {
+  "all_num": 79386,
+  "area": "盐田区",
+  "area_code": "440308",
+  "city": "深圳市",
+  "life_num": 5909,
+  "work_num": 34302
+}, {
+  "all_num": 1282455,
+  "area": "南山区",
+  "area_code": "440305",
+  "city": "深圳市",
+  "life_num": 101456,
+  "work_num": 517425
+}, {
+  "all_num": 1288869,
+  "area": "龙岗区",
+  "area_code": "440307",
+  "city": "深圳市",
+  "life_num": 121732,
+  "work_num": 482063
+}, {
+  "all_num": 145711,
+  "area": "坪山区",
+  "area_code": "440310",
+  "city": "深圳市",
+  "life_num": 10834,
+  "work_num": 57760
+}, {
+  "all_num": 655959,
+  "area": "罗湖区",
+  "area_code": "440303",
+  "city": "深圳市",
+  "life_num": 64744,
+  "work_num": 244282
+}, {
+  "all_num": 964555,
+  "area": "龙华区",
+  "area_code": "440309",
+  "city": "深圳市",
+  "life_num": 93417,
+  "work_num": 355140
+}, {
+  "all_num": 964555,
+  "area": "龙华区",
+  "area_code": "460106",
+  "city": "海口市",
+  "life_num": 93417,
+  "work_num": 355140
+}, {
+  "all_num": 1282455,
+  "area": "南山区",
+  "area_code": "230404",
+  "city": "鹤岗市",
+  "life_num": 101456,
+  "work_num": 517425
+}, {
+  "all_num": 1258663,
+  "area": "福田区",
+  "area_code": "440304",
+  "city": "深圳市",
+  "life_num": 100254,
+  "work_num": 505415
+}, {
+  "all_num": 1258663,
+  "area": "大鹏新区",
+  "area_code": "4403041",
+  "city": "深圳市",
+  "life_num": 100254,
+  "work_num": 505415
+}];

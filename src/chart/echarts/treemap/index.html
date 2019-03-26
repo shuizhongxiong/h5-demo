@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>箱型矩图</title>
+</head>
+
+<body>
+  <div id="main" style="width: 1000px;height:500px;"></div>
+  <script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
+  <script src="data.js"></script>
+  <script>
+    const deviceBrandData = DeviceBrandData.children;
+    const ColorLib = ['#23A597', '#0A689C', '#0BB2DD', '#EF494A', '#F9D827',
+      '#C26CB1', '#473E86', '#C26CB1', '#14497F'
+    ];
+
+    // 基于准备好的dom，初始化echarts实例
+    const myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    const option = {
+      tooltip: {
+        formatter: (params) => {
+          return `手机品牌：${params.name}<br />
+        		占比：${params.value.toFixed(2)}%`
+        }
+      },
+      series: [{
+        name: '手机品牌',
+        type: 'treemap',
+        roam: false,
+        zoomToNodeRatio: 0,
+        drillDownIcon: '',
+        nodeClick: 'none',
+        leafDepth: 1,
+        breadcrumb: {
+          show: false
+        },
+        itemStyle: {
+          gapWidth: 1
+        },
+        levels: [{
+          color: ColorLib,
+        }],
+        data: deviceBrandData
+      }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    // 第二层时点击返回上一层
+    let level = 0;
+    let isFinish = false;
+    myChart.on('finished', () => {
+      isFinish = true;
+    });
+    myChart.on('click', (data) => {
+      if (!isFinish || !data) {
+        return false;
+      }
+      isFinish = false;
+      if (level === 1) {
+        myChart.setOption(myChart.getOption());
+        level = 0;
+      } else {
+        const d = data.data;
+        if (d && d.name && d.children && d.children.length > 0) {
+          level = 1;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

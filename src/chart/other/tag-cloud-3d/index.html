@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>3d 标签云</title>
+  <style>
+    #myCanvas {
+      display: block;
+      margin: 0 auto;
+      width: 388px;
+      height: 200px;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      background: #0d0e15;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="myCanvas"></canvas>
+  <div id="tags" style="display: none;">
+    <li><a href="#" style="font-size: 16px;">男性</a></li>
+    <li><a href="#" style="font-size: 15px;">26-35岁</a></li>
+    <li><a href="#" style="font-size: 14px;">已婚</a></li>
+    <li><a href="#" style="font-size: 13px;">有子女</a></li>
+    <li><a href="#" style="font-size: 12px;">企业职员</a></li>
+    <li><a href="#" style="font-size: 11px;">收入高</a></li>
+    <li><a href="#" style="font-size: 10px;">消费低</a></li>
+    <li><a href="#" style="font-size: 10px;">女性购物</a></li>
+    <li><a href="#" style="font-size: 10px;">工作招聘</a></li>
+    <li><a href="#" style="font-size: 10px;">孕育指导</a></li>
+    <li><a href="#" style="font-size: 10px;">儿童教育</a></li>
+    <li><a href="#" style="font-size: 10px;">在线教育</a></li>
+    <li><a href="#" style="font-size: 10px;">微信支付</a></li>
+  </div>
+  <script src="tagcanvas.min.js"></script>
+  <script>
+    TagCanvas.Start('myCanvas', 'tags', {
+      hideTags: true, // true如果TagCanvas成功启动，则设置为自动隐藏标签列表元素。
+      fadeIn: 3000, // 开始时刻淡入标签的时间，以毫秒为单位。
+      minTags: 16, // 云中显示的最少标签数量。如果可用链接的数量低于此值，则将重复列表。支持的最大值是200.该repeatTags选项优先minTags。
+      maxBrightness: 1, // 云前标签的亮度（不透明度）（0.0-1.0）。
+      shuffleTags: true, // 设置为true随机化标签的顺序。
+
+      shape: 'sphere', // 云的形状，sphere、hcylinder、vcylinder、hring、vring
+      stretchX: 1.6, // 	水平拉伸或压缩云。
+      stretchY: 1, // 垂直拉伸或压缩云。
+
+
+      textFont: 'Helvetica, Arial, sans-serif', // 字体
+      textColour: '#fff', // 标记文本的颜色
+      outlineColour: '#00C2FF', // 活动颜色
+      outlineMethod: 'colour', // 要使用的突出显示的类型，outline、classic、block、colour、size、none
+
+      reverse: true, // 设置为true相对于鼠标位置反向移动。
+      initial: [0.05, -0.05], // 开始旋转速度，以水平和垂直值作为数组，值乘以maxSpeed
+      maxSpeed: 0.1, // 最大旋转速度。
+      minSpeed: 0.01, // 鼠标离开画布时的最小旋转速度。
+      clickToFront: 600, // 选定的标签将在激活之前的几毫秒内移动到前端。
+      decel: 0.9, // 鼠标离开画布时的减速率。
+      depth: 0.9, // 控制视角（0.0-1.0）
+      freezeDecel: true, // 设置为true突出显示标记冻结而不是突然停止时减速。
+
+      weight: true, // 设置为true打开标签的权重。
+      weightMode: 'size', // 用于显示标签权重的方法，size、colour、both、bgcolour、bgoutline、outline
+      weightSize: 1, // 乘数用于在使用size或的权重模式时调整标记的大小
+      weightSizeMax: 16, // 启用加权大小调整时的最大字体大小。
+      weightSizeMin: 12, // 启用加权大小调整时的最小字体大小。
+    });
+  </script>
+</body>
+
+</html>

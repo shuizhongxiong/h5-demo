@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <style type="text/css">
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      font-family: "微软雅黑";
+    }
+    #allmap {
+      width: 100%;
+      height: 100%;
+    }
+    p {
+      margin-left: 5px;
+      font-size: 14px;
+    }
+  </style>
+  <title>行政区域蒙层</title>
+</head>
+
+<body>
+  <div id="allmap"></div>
+</body>
+
+<script
+  src="https://api.map.baidu.com/api?v=3.0&ak=PsTi2jLoR74dFhGWQyum0Gy9QoyZLYtL&callback=initialize">
+</script>
+<script src="data.js"></script>
+<script type="text/javascript">
+  function initialize() {
+    // 百度地图API功能
+    const map = new BMap.Map("allmap");
+    map.enableScrollWheelZoom();
+    map.centerAndZoom('深圳市', 11);
+    const data = DATA;
+    data.forEach(d => {
+      const name = d.city + d.area;
+      const bdary = new BMap.Boundary();
+      bdary.get(name, function(res) { //获取行政区域
+        console.log(res);
+        res.boundaries.forEach(d => {
+          const polygon = new BMap.Polygon(d, {
+            strokeWeight: 1,
+            strokeColor: '#7F60CD',
+            strokeOpacity: 1,
+            fillColor: '#7F60CD',
+            fillOpacity: 0.2,
+          });
+          map.addOverlay(polygon);
+        });
+      });
+    });
+  }
+</script>
+
+</html>

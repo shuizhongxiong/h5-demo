@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>血缘关系图</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .graph-tool {
+      margin: 20px;
+    }
+    .graph-tool>input {
+      display: inline-block;
+      width: 150px;
+      height: 32px;
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 2px 0 0 2px;
+      transition: all ease-in-out .15s;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+      outline: none;
+    }
+    .graph-tool>button {
+      display: inline-block;
+      line-height: 32px;
+    }
+    .graph-tool>div {
+      display: inline-block;
+      line-height: 32px;
+    }
+    #graph {
+      overflow: hidden;
+      margin: 0 20px;
+      height: 400px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    #graph>svg {
+      min-height: 100%;
+      min-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="graph-tool">
+    <input id="searchInput" value="" name="search" placeholder="请输入关键字定位"
+      oninput="inputChange(event)">
+    <button onclick="searchPrev()">上一个</button>
+    <button onclick="searchNext()">下一个</button>
+    <div>搜索结果有 <span id="searchResult">0</span> 个，当前是第 <span
+        id="searchIndex">0</span> 个。</div>
+
+    <button onclick="render(DATA1.data)">DATA1</button>
+    <button onclick="render(DATA3.data)">DATA3</button>
+    <button onclick="render(DATA5.data)">DATA5</button>
+  </div>
+  <div id="graph"></div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="viz.js"></script>
+  <script src="d3-graphviz.min.js"></script>
+  <script src="data.js"></script>
+  <script>
+    'use strict';
+    const graphS = d3.select('#graph');
+    const searchResultEl = d3.select('#searchResult').node();
+    const searchIndexEl = d3.select('#searchIndex').node();
+    const searchInputEl = d3.select('#searchInput').node();
+    let graphviz = graphS.graphviz();
+    let nodeList = [];
+    let searchList = [];
+    let searchIndex = 0;
+    let activeNode = null;
+
+    function render(data) {
+      graphClear();
+      const parent = data.parent_data;
+      const child = data.child_data;
+      const options = `
+                    rankdir="LR"
+                    node [style="rounded" shape="box" height=0 width=0 fontsize=12]
+                    edge [arrowhead="vee" arrowsize=0.5 color="#AEB3BA"]
+                `;
+      // 处理数据
+      nodeList = [parent.name];
+      let rootId = parent.name.replace('.', '');
+      let dots =
+        `${rootId} [id="${rootId}" label="${parent.name}" color="#13C2C1"]`;
+      let edges = '';
+      let dotsTmpMap = {};
+
+      function setData(data, parentId, direction) {
+        data.forEach((d, i) => {
+          const nodeId = d.name.replace('.', '');
+          // 添加连线
+          if (direction === 'left') {
+            edges += ` ${nodeId} -> ${parentId}`;
+          } else if (direction === 'right') {
+            edges += ` ${parentId} -> ${nodeId}`;
+          }
+          // 添加节点
+          if (!dotsTmpMap[d.name]) {
+            nodeList.push(d.name);
+            dotsTmpMap[d.name] = d;
+            const borderColor = (direction === 'left') ? '#1890FF' :
+              '#8E77ED';
+            dots +=
+              ` ${nodeId} [id="${nodeId}" label="${d.name}" color="${borderColor}"]`;
+          }
+          // 递归添加子节点
+          if (d.children && d.children.length > 0) {
+            setData(d.children, nodeId, direction);
+          }
+        });
+      }
+      // 添加左侧数据
+      setData(parent.children, rootId, 'left');
+      // 添加右侧数据
+      setData(child.children, rootId, 'right');
+      // 渲染数据
+      graphviz.renderDot(`digraph R { ${options} ${dots} ${edges} }`);
+    }
+    // 绘制
+    render(DATA3.data);
+
+    // 搜索功能
+    function inputChange(e) {
+      e.stopPropagation();
+      const value = e.srcElement.value;
+      const nodeId = getSearchNodeId(value);
+      setNodeIntoView(nodeId);
+    }
+
+    function getSearchNodeId(value) {
+      if (!value) {
+        setSearchResult(0, 0);
+        return null;
+      }
+      searchList = [];
+      nodeList.forEach(d => {
+        if (d === value) {
+          searchList.shift(d);
+        }
+        if (d.indexOf(value) !== -1) {
+          searchList.push(d);
+        }
+      });
+      const searchListLen = searchList.length;
+      setSearchResult(searchListLen, (searchListLen > 0) ? (searchIndex + 1) :
+        0);
+      return searchList[searchIndex] || null;
+    }
+
+    function setNodeIntoView(nodeId) {
+      if (activeNode) {
+        activeNode.children[2].setAttribute('fill', '#000');
+      }
+      if (!nodeId) {
+        return false;
+      }
+      const id = '#' + nodeId.replace('.', '');
+      const node = d3.select(id).node();
+      if (!node) {
+        return false;
+      }
+      activeNode = node;
+      node.children[2].setAttribute('fill', '#33A597');
+      if (nodeList.length < 10) {
+        return false;
+      }
+      const nodeBox = node.getBBox();
+      const graphRect = graphS.node().getBoundingClientRect();
+      const graphWidth = graphRect.width;
+      const graphHeight = graphRect.height;
+      if (nodeBox.x < 0) { // 左侧
+        graphviz._originalTransform.x = nodeBox.x + (graphWidth / 2) - nodeBox
+          .width * 2;
+      } else { // 右侧
+        graphviz._originalTransform.x = -nodeBox.x + (graphWidth / 2) - nodeBox
+          .width * 2;
+      }
+      graphviz._originalTransform.y = -nodeBox.y + (graphHeight / 2) - nodeBox
+        .height * 2;
+      graphS.select('svg').call(graphviz._zoomBehavior.transform, graphviz
+        ._originalTransform);
+    }
+
+    function searchPrev() {
+      if (searchIndex === 0) {
+        return false;
+      }
+      searchIndex--;
+      setSearchResult(null, searchIndex + 1);
+      setNodeIntoView(searchList[searchIndex]);
+    }
+
+    function searchNext() {
+      if ((searchIndex + 1) >= searchList.length) {
+        return false;
+      }
+      searchIndex++;
+      setSearchResult(null, searchIndex + 1);
+      setNodeIntoView(searchList[searchIndex]);
+    }
+
+    function setSearchResult(total, index) {
+      searchResultEl.innerText = total ? total : 0;
+      searchIndexEl.innerText = index ? index : 0;
+    }
+    // 清空图表
+    function graphClear() {
+      graphS.html('');
+      graphviz = graphS.graphviz();
+      searchInputEl.value = ''
+      searchResultEl.innerText = 0;
+      searchIndexEl.innerText = 0;
+      nodeList = [];
+      searchList = [];
+      searchIndex = 0;
+      activeNode = null;
+    }
+  </script>
+</body>
+
+</html>
