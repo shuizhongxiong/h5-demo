@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>canvas放大镜</title>
+  <style>
+    .glass {
+      position: relative;
+    }
+    canvas {
+      background-color: #fff;
+      cursor: none;
+    }
+    canvas#canvas1 {
+      z-index: 1;
+    }
+    canvas#canvas2 {
+      pointer-events: none;
+      z-index: 2;
+      display: none;
+      position: absolute;
+      left: 0px;
+      top: 0;
+      border: 1px dashed black;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label for="ratio">放大级别（0-1缩小，>1放大）</label>
+    <input id="ratio" type="number" value="2">
+    <button id="btnSure">确定</button>
+  </div>
+  <br>
+  <div class="glass">
+    <canvas id="canvas1"></canvas>
+    <canvas id="canvas2" width="80px" height="80px"></canvas>
+  </div>
+  <script>
+    var canvas1 = document.getElementById("canvas1"); // 源图像
+    var context1 = canvas1.getContext("2d");
+    var canvas2 = document.getElementById("canvas2"); // 放大镜
+    var context2 = canvas2.getContext("2d");
+
+    var ipt = document.getElementById('ratio');
+    var ratio = ipt.value || 2;
+    var btn = document.getElementById('btnSure');
+    btn.addEventListener('click', function() {
+      ratio = ipt.value || 2;
+      window_onload();
+    }, false);
+
+    function window_onload() {
+      var image = new Image();
+      image.src = "gmd.jpg";
+      // 等待图片加载完再装载
+      image.onload = function() {
+        canvas1.width = image.width;
+        canvas1.height = image.height;
+        canvas1.parentNode.style.width = image.width + "px";
+        canvas1.parentNode.style.height = image.height + "px";
+        context1.drawImage(image, 0, 0, image.width, image.height);
+      }
+      canvas1.onmousemove = canvas1_onmouse_move;
+      canvas1.onmouseout = canvas1_onmouse_out;
+    }
+    // 鼠标滑过事件
+    function canvas1_onmouse_move(e) {
+      var image;
+      var x, y;
+      var drawWidth, drawHeight;
+      // 显示并清除放大镜
+      canvas2.style.display = "inline";
+      context2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+      // 鼠标位置
+      pX = e.pageX;
+      pY = e.pageY;
+
+      // 鼠标在canvas1上距离自己的边缘距离 即放大镜的左上角
+      c1X = pX - canvas1.parentNode.offsetLeft;
+      c1Y = pY - canvas1.parentNode.offsetTop;
+
+      // 定位canvas2的位置 即放大镜的中心点
+      c2X = c1X - canvas2.width / 2;
+      c2Y = c1Y - canvas2.height / 2;
+
+      canvas2.style.left = c2X + "px";
+      canvas2.style.top = c2Y + "px";
+
+      var image = new Image();
+      image.src = "gmd.jpg";
+      /*
+      	context.drawImage(img, sx, sy, swidth, sheight, x, y, width, height);
+      	剪切图像，并在画布上定位被剪切的部分：
+      	img	规定要使用的图像、画布或视频。
+      	sx	可选。开始剪切的 x 坐标位置。
+      	sy	可选。开始剪切的 y 坐标位置。
+      	swidth	可选。被剪切图像的宽度。
+      	sheight	可选。被剪切图像的高度。
+      	x	在画布上放置图像的 x 坐标位置。
+      	y	在画布上放置图像的 y 坐标位置。
+      	width	可选。要使用的图像的宽度。（伸展或缩小图像）
+      	height	可选。要使用的图像的高度。（伸展或缩小图像）
+      */
+      var startX = c1X - canvas2.width / ratio / 2;
+      var startY = c1Y - canvas2.height / ratio / 2;
+
+      context2.drawImage(image, startX, startY, canvas2.width / ratio, canvas2
+        .height / ratio, 0, 0, canvas2.width, canvas2.height);
+    }
+    // 鼠标离开将放大镜隐藏
+    function canvas1_onmouse_out() {
+      canvas2.style.display = "none";
+    }
+
+    // 文档就绪事件
+    window.onload = function() {
+      window_onload();
+    }
+
+    /*
+    	总结：
+    	1、canvas1是源图像，canvas2是放大镜。
+    	2、canvas2绝对定位且图层高于canvas1，并且要加上禁掉鼠标事件css（pointer-events: none;），因为我们监听的是canvas1的鼠标滑过事件，但是我们通过对canvas2绝对定位后，鼠标就会落到canvas2上，这样就不会触发canvas1上的事件了，导致了放大镜不断地闪烁。
+    	3、在鼠标滑过事件里计算出鼠标的位置（x,y）后，再计算canvas2的位置，因为要把放大镜的中心设置成鼠标的位置，注意，这个时候放大镜会在鼠标的右下角，即canvas2的0，0的位置就是鼠标位置，所以要x-放大镜的宽，y+放大镜的高。
+    	4、核心方法是canvas的drawImage，要注意里面的各个参数的含义，灵活运用。
+    	5、可以通过更改ratio放大系数的值。
+    */
+  </script>
+</body>
+
+</html>

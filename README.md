@@ -4,8 +4,8 @@
 
 ## 预览
 
-* [时钟](http://htmlpreview.github.io/?https://github.com/shuizhongxiong/h5-demo/blob/master/src/pages/clock/clock.html)
+* [时钟](https://shuizhongxiong.github.io/h5-demo/clock)
 
-* [微粒进度条](http://htmlpreview.github.io/?https://github.com/shuizhongxiong/h5-demo/blob/master/src/pages/loading-particle/particle.html)
+* [微粒进度条](https://shuizhongxiong.github.io/h5-demo/particle)
 
-* [放大镜](http://htmlpreview.github.io/?https://github.com/shuizhongxiong/h5-demo/blob/master/src/pages/magnifier/magnifier.html)
+* [放大镜](https://shuizhongxiong.github.io/h5-demo/magnifier)

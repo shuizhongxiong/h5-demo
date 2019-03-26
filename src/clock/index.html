@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+
+<body>
+  <canvas id="c"></canvas>
+  <script>
+    var c = document.getElementById('c'),
+      ctx = c.getContext('2d');
+    c.width = '210';
+    c.height = '210';
+
+    // 表盘
+    function clockBg() {
+      ctx.save(); // 进入栈
+
+      ctx.beginPath(); // 开始绘制路径
+      ctx.arc(105, 105, 100, 0, 2 * Math.PI, false); // 画外圆
+      ctx.moveTo(200, 105); // 移动画笔，不画线
+      ctx.arc(105, 105, 95, 0, 2 * Math.PI, false); // 画内圆
+      ctx.stroke(); // 描边
+      ctx.translate(105, 105); // 移动画布
+
+      // 时刻数字
+      ctx.font = 'bold 14px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      for (var i = 1; i <= 12; i++) {
+        ctx.fillText(i, 85 * Math.sin(360 / 12 * i * 2 * Math.PI / 360), -85 *
+          Math.cos(360 / 12 * i * 2 * Math.PI / 360));
+      }
+
+      ctx.beginPath(); // 开始绘制路径
+      ctx.arc(0, 0, 5, 0, 2 * Math.PI, false); // 画中心圆
+      ctx.fillStyle = 'black';
+      ctx.fill();
+
+      ctx.closePath();
+      ctx.restore(); // 弹出栈
+    }
+
+    // 针(旋转，类型)
+    function hand(val, type) {
+      ctx.save();
+
+      ctx.translate(105, 105);
+      ctx.moveTo(0, 0);
+
+      var handLength,
+        handColor;
+      if (type == 'hour') {
+        ctx.rotate(2 * Math.PI / 360 * val * 360 / 12 / 60 / 60);
+        handLength = 55;
+        handColor = 'blue';
+      } else if (type == 'minute') {
+        ctx.rotate(2 * Math.PI / 360 * val * 360 / 60 / 60);
+        handLength = 70;
+        handColor = 'green';
+      } else if (type == 'second') {
+        ctx.rotate(2 * Math.PI / 360 * val * 360 / 60);
+        handLength = 85;
+        handColor = 'red';
+      }
+      ctx.beginPath(); // 开始绘制路径
+      ctx.lineTo(-2.5, 12.5);
+      ctx.lineTo(0, -handLength);
+      ctx.lineTo(2.5, 12.5);
+      ctx.lineWidth = '1';
+      ctx.fillStyle = handColor;
+      ctx.fill();
+
+      ctx.closePath();
+      ctx.restore();
+    }
+
+    function clear() {
+      ctx.clearRect(0, 0, c.width, c.height);
+    }
+
+    function init() {
+      var h = 0,
+        m = 0,
+        s = 0;
+      // 获取当前时间
+      var now = new Date(),
+        nowHour = now.getHours(),
+        nowMinute = now.getMinutes(),
+        nowSecond = now.getSeconds();
+
+      // 初始化时间
+      h = nowHour * 60 * 60;
+      m = nowMinute * 60;
+      s = nowSecond;
+
+      return (function() {
+        clear();
+        clockBg();
+        hand(h, 'hour');
+        hand(m, 'minute');
+        hand(s, 'second');
+
+        s = s >= 59 ? 0 : (s + 1);
+        m = m >= 59 * 60 ? 0 : (m + 1);
+        h = h >= 59 * 60 * 24 ? 0 : (h + 1);
+
+        var timer = setTimeout(arguments.callee, 1000);
+      })();
+    }
+
+    init();
+
+    /* 总结：
+    		其实这次的难点在于理解，画笔绘制路径时的坐标在哪，以及控制画笔移动；
+    		复习了一下高中三角函数，和时分秒换算问题。。。
+    		知道了Math.sin(cos)里计算的是弧度，即(degrees* 2*Math.PI/360)
+    		理解了canvas绘制路径时存入栈，绘制完再弹出。
+    		最后再来个自执行闭包，得到初始化值之后，不断地重新绘制不变的表盘和随之改变的表针。
+    */
+  </script>
+</body>
+
+</html>
