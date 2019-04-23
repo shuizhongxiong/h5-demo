@@ -56,9 +56,6 @@
       width: 100%;
     }
   </style>
-  <script src="d3.v4.min.js"></script>
-  <script src="viz.js" type="javascript/worker"></script>
-  <script src="d3-graphviz.min.js"></script>
 </head>
 
 <body>
@@ -73,6 +70,9 @@
     <button onclick="render(DATA5.data)">DATA5</button>
   </div>
   <div id="graph"></div>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://unpkg.com/viz.js@1.8.1/viz.js" type="javascript/worker"></script>
+  <script src="https://unpkg.com/d3-graphviz@1.3.1/build/d3-graphviz.min.js"></script>
   <script src="data.js"></script>
   <script>
     'use strict';
