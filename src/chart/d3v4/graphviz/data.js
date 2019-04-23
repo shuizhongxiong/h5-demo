@@ -1,6 +1,17 @@
+const DATA1 = {
+  "data": {
+    "parent_data": {
+      "name": "g.test_log",
+      "children": []
+    },
+    "child_data": {
+      "name": "",
+      "children": []
+    }
+  }
+}
+
 const DATA3 = {
-  "success": true,
-  "msg": "",
   "data": {
     "parent_data": {
       "name": "g.test_log",
@@ -608,8 +619,6 @@ const DATA3 = {
 };
 
 const DATA5 = {
-  "success": true,
-  "msg": "",
   "data": {
     "parent_data": {
       "name": "g.test_log",
@@ -1545,16 +1554,3 @@ const DATA5 = {
     }
   }
 };
-
-const DATA1 = {
-  "data": {
-    "parent_data": {
-      "name": "g.test_log",
-      "children": []
-    },
-    "child_data": {
-      "name": "",
-      "children": []
-    }
-  }
-}

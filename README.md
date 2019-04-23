@@ -27,7 +27,7 @@
 
 ## H5 特效
 
-* [夜晚流星](https://shuizhongxiong.github.io/h5-demo/src/h5/meteor-shower)
+* [流星划过星空](https://shuizhongxiong.github.io/h5-demo/src/h5/meteor-shower)
 * [时钟](https://shuizhongxiong.github.io/h5-demo/src/h5/clock)
 * [微粒进度条](https://shuizhongxiong.github.io/h5-demo/src/h5/particle)
 * [放大镜](https://shuizhongxiong.github.io/h5-demo/src/h5/magnifier)
