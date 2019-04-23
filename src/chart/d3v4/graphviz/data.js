@@ -11,6 +11,25 @@ const DATA1 = {
   }
 }
 
+const DATA2 = {
+  "data": {
+    "parent_data": {
+      "name": "g.test_log",
+      "children": [{
+        "name": "g.test_log_old",
+        "children": []
+      }]
+    },
+    "child_data": {
+      "name": "",
+      "children": [{
+        "name": "ad.ad_chenyj_temp",
+        "children": []
+      }]
+    }
+  }
+}
+
 const DATA3 = {
   "data": {
     "parent_data": {
